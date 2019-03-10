@@ -284,7 +284,7 @@ Configuration file: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/leopardpa
 > 解决：把CNAME里面的baixin.io修改成你自己的域名，如果你暂时没有域名，CNAME里面就什么都不用谢。（之前没人反馈过这个问题，应该是github page最近才最的限制。）
 
 
-
+文章转载自：[潘柏信的博客](http://baixin) » [点击阅读原文](http://baixin.io/2016/06/Develop_Tool/)
 
 
 

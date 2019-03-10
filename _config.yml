@@ -1,28 +1,28 @@
 # Basic
-title: 潘柏信
+title: lenjor
 subtitle: 个人站
 description: 欢迎来到我的个人站~
 # 头像里面的标题
-avatarTitle: leopardpan
+avatarTitle: lenjor
 # 头像里面的描述
-avatarDesc: iOS / 机器学习
-url: "http://baixin.io"
+avatarDesc: Java / 动漫
+url: "http://lenjor.github.io"
 
 # Comment
 comment:
-    disqus: leopard
+    disqus: lenjor
     # gitment: xxx // 需要修改 comments.html中的client_id和client_secret
     # uyan: 2143225  # 有言id,登录有言官网申请
 
 # Social
 social:
-    weibo: 5366874726 
-    github: leopardpan
-    # zhihu: panpanleopard
+    # weibo: 
+    github: lenjor
+    # zhihu: xxx
     # juejin: xxx
-    jianshu: 2ada30d8d0f7
+    jianshu: xxx
     # twitter: 
-    mail: leopardpan@icloud.com
+    mail: 1124614430@qq.com
 
 
 # 百度统计 
