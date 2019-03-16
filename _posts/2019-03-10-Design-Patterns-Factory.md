@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 简单聊聊工厂设计模式
+title: 工厂设计模式(Factory Pattern)
 tags: 设计模式   
 ---
 
@@ -532,5 +532,5 @@ public class Client {
 
 文章受 程杰 的 《大话设计模式》启发，对设计模式感兴趣的小伙伴可以拜读一下这本书。
 
-最后，感谢各位的阅读。阅读代码，请点击[代码git仓库](https://gitee.com/Lj_coding/My-Learning.git)
+最后，感谢各位的阅读。查看具体源代码，请点击[代码git仓库](https://gitee.com/Lj_coding/My-Learning.git)
 链接：https://gitee.com/Lj_coding/My-Learning.git

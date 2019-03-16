@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 浅谈装饰模式
+title: 装饰模式(Decorator Pattern)
 tags: 设计模式   
 ---
 <!-- TOC -->
