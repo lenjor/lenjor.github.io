@@ -1,7 +1,7 @@
 ---
 layout: post
 title: IDEA Spring Boot项目搭建
-tags: spring boot   
+tags: SpringBoot   
 ---
 
 ##### 备注
