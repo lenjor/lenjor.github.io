@@ -12,8 +12,8 @@ tags: virtual Box
 
 <!-- /TOC -->
 ### 安装Oracle VM VirtualBox
-1. 官网下载安装包，官网地址：https://www.virtualbox.org/
-2. 下载CentOs镜像，官网：https://www.centos.org/
+1. 官网下载安装包，官网地址：[https://www.virtualbox.org/](https://www.virtualbox.org/)
+2. 下载CentOs镜像，官网：[https://www.centos.org/](https://www.centos.org/)
     - 建议使用阿里云的镜像地址
     - 建议采用迅雷下载比较快
    ![在这里插入图片描述](/images/posts/myBlog/2019-05-29-VMBox-install-CentOS-01.jpg) 
