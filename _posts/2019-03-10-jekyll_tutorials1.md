@@ -45,6 +45,11 @@ $ cd myBlog
 $ jekyll serve
 ```
 
+安装缺少的gem包
+```
+gem install jekyll-paginate
+gem install jekyll-sitemap
+```
 在浏览器里输入： [http://localhost:4000](http://localhost:4000)，就可以看到你的博客效果了。
 
 ![](/images/posts/jekyll/image1.png)
