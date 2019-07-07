@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java集合HashMap 源码分析
-tags: java java基础   
+tags: java集合
 ---
 <!-- TOC -->
 

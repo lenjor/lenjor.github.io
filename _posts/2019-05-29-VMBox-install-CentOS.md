@@ -1,7 +1,7 @@
 ---
 layout: post
 title: VM Box 安装CentOS7.6和网络设置
-tags: virtual Box    
+tags: 虚拟机    
 ---
 
 <!-- TOC -->

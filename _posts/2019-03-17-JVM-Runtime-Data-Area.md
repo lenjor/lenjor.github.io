@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JVM运行时数据区(JVM Runtime Data Area)
-tags: 设计模式   
+tags: JVM   
 ---
 
 
