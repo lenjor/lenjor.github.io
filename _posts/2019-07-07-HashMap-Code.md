@@ -3,7 +3,22 @@ layout: post
 title: Java集合HashMap 源码分析
 tags: java java基础   
 ---
+<!-- TOC -->
 
+- [一、HashMap简介](#一hashmap简介)
+- [二、底层数据结构分析](#二底层数据结构分析)
+    - [(1)存放元素的结构](#1存放元素的结构)
+    - [(2)红黑树节点的数据类型定义为：](#2红黑树节点的数据类型定义为)
+    - [(3)HashMap类的一些属性](#3hashmap类的一些属性)
+- [三、HashMap的构造方法](#三hashmap的构造方法)
+- [四、HashMap的关键方法](#四hashmap的关键方法)
+    - [(1)put方法](#1put方法)
+    - [(2)get方法](#2get方法)
+    - [(3)resize方法](#3resize方法)
+    - [(4)containsKey方法](#4containskey方法)
+    - [(5)containsValue方法](#5containsvalue方法)
+
+<!-- /TOC -->
 ### 一、HashMap简介
 HashMap 主要用来存放键值对，它基于哈希表的Map接口实现，是常用的Java集合之一。
 
@@ -13,7 +28,7 @@ JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主体�
 
 ### 二、底层数据结构分析
 
-#### （1）存放元素的结构
+#### (1)存放元素的结构
 HashMap的底层数据结构就是数组（hash桶），这个数组存放的数据结构类型为：
 
 ```java
@@ -58,7 +73,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
 }
 ```
 
-#### （2）红黑树节点的数据类型定义为：
+#### (2)红黑树节点的数据类型定义为：
 ```java
 static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
         TreeNode<K,V> parent;  // 父
@@ -78,7 +93,7 @@ static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
        }
 ```
 
-#### （3）HashMap类的一些属性
+#### (3)HashMap类的一些属性
 ```java
 public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneable, Serializable {
     // 序列号
@@ -194,7 +209,7 @@ final void putMapEntries(Map<? extends K, ? extends V> m, boolean evict) {
 
 
 ### 四、HashMap的关键方法
-#### （1）put方法
+#### (1)put方法
 ①如果定位到的数组位置没有元素 就直接插入。
 ②如果定位到的数组位置有元素就和要插入的key比较，如果key相同就直接覆盖，如果key不相同，就判断p是否是一个树节点，如果是就调用e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value)将元素添加进入。如果不是就遍历链表插入(插入的是链表尾部)。
 ![](/images/posts/myBlog/2019-07-07-HashMap-Code-01.png)
@@ -295,7 +310,7 @@ static final int hash(Object key) {
     }
 ```
 
-#### （2）get方法
+#### (2)get方法
 ```java
 public V get(Object key) {
     Node<K,V> e;
