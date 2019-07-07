@@ -17,7 +17,7 @@ tags: java java基础
     - [(3)resize方法](#3resize方法)
     - [(4)containsKey方法](#4containskey方法)
     - [(5)containsValue方法](#5containsvalue方法)
-- [高频HashMap面试题](#高频hashmap面试题)
+- [五、高频HashMap面试题](#五高频hashmap面试题)
 
 <!-- /TOC -->
 ### 一、HashMap简介
@@ -457,7 +457,7 @@ final Node<K,V>[] resize() {
 ```
 
 
-### 高频HashMap面试题
+### 五、高频HashMap面试题
 1. HashMap的原理，内部数据结构？
 	+ 底层使用Hash表（数组+链表+红黑树），当链表过长（>=8）会将链表转成红黑树以实现O(logn)时间复杂度内查找
 2. 讲一下HashMap中put方法过程？
