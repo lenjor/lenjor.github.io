@@ -17,6 +17,7 @@ tags: java java基础
     - [(3)resize方法](#3resize方法)
     - [(4)containsKey方法](#4containskey方法)
     - [(5)containsValue方法](#5containsvalue方法)
+- [高频HashMap面试题](#高频hashmap面试题)
 
 <!-- /TOC -->
 ### 一、HashMap简介
@@ -454,6 +455,31 @@ final Node<K,V>[] resize() {
         return false;
     }
 ```
+
+
+### 高频HashMap面试题
+1. HashMap的原理，内部数据结构？
+	+ 底层使用Hash表（数组+链表+红黑树），当链表过长（>=8）会将链表转成红黑树以实现O(logn)时间复杂度内查找
+2. 讲一下HashMap中put方法过程？
+	i. 对Key求Hash值（hashCode的高16位异或低16位），然后计算 下标 ，计算的hash值 & (数组大小-1)
+	ii. 如果没有碰撞，直接放入桶中
+	iii. 如果碰撞了，以链表的方式链接在后面
+	iv. 如果链表长度超过阀值(TREEIFY_THRESHOLD ==8),就把链表转成红黑树
+	v. 如果节点已经存在就替换旧值
+	vi. 如果桶满了(容量*负载因子),就需要resize
+3. HashMap中hash函数是如何实现的？
+	i. 高16bit不变，低16bit和高16bit做了一个异或
+	ii. (n-1) & hash --->得到下标
+4. HashMap怎么解决冲突，讲一下扩容过程，加入一个值在原数组中，现在移动了新数组，位置肯定改变了，那是什么定位到在这个新值数组中的位置？
+    - 将新节点加到链表后
+    - 容量扩容为原来的两倍，然后对每个节点重新计算哈希值
+    - 这个值只可能在两个地方：一个是原下标的位置，另一种是在下标为 <原下标+原容量> 的位置
+5. 抛开HashMap，hash冲突有哪些解决办法？
+	- 开放地址法，链地址法
+
+6. 针对HashMap中某个Entry链太长，查找的时间复杂度可能达到O(n)，怎么优化
+	- 将链表转为红黑树，JDK1.8已经实现了，查找复杂度为log(n)
+
 
 注：本文参考JavaGuide项目文章，文章地址：
 - [https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
