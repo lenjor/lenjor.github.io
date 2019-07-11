@@ -113,6 +113,9 @@ ps：如果是win10的朋友，可以在左下角，右键点开菜单
 1. [初始化时 Failed to find valid data directory 错误](https://www.jianshu.com/p/916f9b111b23)
 2. [net start mysql 命令  MySQL 服务无法启动](https://www.jianshu.com/p/916f9b111b23)
 3. [Navicat无法连接到MySQL](https://blog.csdn.net/qq_39206238/article/details/80351803)
+4. window 10 控制台执行命令   mysqld -install  提示：   
+mysqld：无法将“mysqld”项识别为cmdlet、函数、脚本文件或可运行程序额名称。
+请在命令前加上.\ 如：<font color="red">.\mysqld.exe install</font>
 
 
 
