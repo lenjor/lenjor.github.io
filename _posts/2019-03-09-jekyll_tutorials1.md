@@ -21,7 +21,7 @@ tags: 博客
 
 ### Jekyll 环境配置
 
-安装 jekyll
+安装 jekyll：下载解压RubyGems，点击setup.rb安装，成功后在控制台运行
 
 ```     
 $ gem install jekyll     
@@ -289,9 +289,4 @@ Configuration file: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/leopardpa
 
 
 文章转载自：[潘柏信的博客](http://baixin) » [点击阅读原文](http://baixin.io/2016/06/Develop_Tool/)
-
-
-
-
-
 
