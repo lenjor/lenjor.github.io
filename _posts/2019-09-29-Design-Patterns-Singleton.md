@@ -3,6 +3,20 @@ layout: post
 title: 单例模式(Singleton pattern)
 tags: 设计模式   
 ---
+<!-- TOC -->
+
+- [为什么要使用单例模式](#为什么要使用单例模式)
+- [饿汉式](#饿汉式)
+- [懒汉式](#懒汉式)
+- [单例模式的其他实现方式](#单例模式的其他实现方式)
+    - [静态内部类实现](#静态内部类实现)
+    - [枚举实现](#枚举实现)
+- [破解单例](#破解单例)
+    - [反射破解法](#反射破解法)
+    - [反序列化破解法](#反序列化破解法)
+- [总结](#总结)
+
+<!-- /TOC -->
 
 ### 为什么要使用单例模式
 单例模式属于上篇说过的设计模式三大分类中的第一类——创建型模式。顾名思义，单例设计模式就是为了保证创建出来的对象实例只有一个。
@@ -162,8 +176,6 @@ private Object readResolve() throws ObjectStreamException{
 }
 ```
 
-
-#### 
 ### 总结
 
     从安全性角度考虑，枚举显然是最安全的，保证绝对的单例，因为可以天然防止反射和反序列化的破解手段。而其它方案一定场合下全部可以被破解。
@@ -175,3 +187,7 @@ private Object readResolve() throws ObjectStreamException{
     1. 构造函数私有化
     2. private static修饰的单例对象引用
     3. 公开的获取对象实例的静态方法
+
+
+注：本文参考 java进阶架构师 文章，文章地址：
+- [https://mp.weixin.qq.com/s/wb_INuq8cQ0p8hGtIYf0uQ](https://mp.weixin.qq.com/s/wb_INuq8cQ0p8hGtIYf0uQ)
