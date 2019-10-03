@@ -20,7 +20,7 @@ tags: java
 ### 手写自己的动态代理需要重写那些内容
 首先我们来看看，上一篇文章[代理模式(Proxy pattern)](https:www.baidu.com)的动态代理类中，使用到了那些内容，从中找出需要重新实现的类和方法。
 
-![](/images/posts/myBlog/2019-10-03-Implement-Your-Own-JDK-Dynamic-Proxy-01.jpg)
+![](/images/posts/myBlog/2019-10-03-Implement-Your-Own-JDK-Dynamic-Proxy-01.png)
 
 ### 动态生成的 $Proxy0 对象长什么样？
 把上一篇文章的动态代理的测试类，改造一下，从JDK，保存成文件，我们来看看 $Proxy0 对象长什么样。
@@ -140,8 +140,8 @@ public final class $Proxy0 extends Proxy implements Rent {
 ```
 
 #### 反编译$Proxy.class代码分析
-![](/images/posts/myBlog/2019-10-03-Implement-Your-Own-JDK-Dynamic-Proxy-01.png)
 ![](/images/posts/myBlog/2019-10-03-Implement-Your-Own-JDK-Dynamic-Proxy-02.png)
+![](/images/posts/myBlog/2019-10-03-Implement-Your-Own-JDK-Dynamic-Proxy-03.png)
 从上面的两张图中，我们就可以知道，$Proxy0 类继承自Proxy类，是JVM动态生成的类被final修饰。同样实现了被代理类的接口，当调用代理的方法时，执行的是
 ``` java
  public final String buy(int var1) throws  {
@@ -470,7 +470,7 @@ public class MyProxy {
 
 
 #### 测试方法
-```
+``` java
 public class MyProxyTest {
     public static void main(String[] args){
         Customer customer = new Customer("陈大春");
@@ -485,7 +485,7 @@ public class MyProxyTest {
 
 
 ### 运行结果
-![](/images/posts/myBlog/2019-10-03-Implement-Your-Own-JDK-Dynamic-Proxy-04.png)
+![](/images/posts/myBlog/2019-10-03-Implement-Your-Own-JDK-Dynamic-Proxy-05.png)
 
 ### 总结
 大功告成，手写JDK动态代理的过程就完成了。
