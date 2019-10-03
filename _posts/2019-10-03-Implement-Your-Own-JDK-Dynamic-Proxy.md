@@ -18,7 +18,7 @@ tags: java
 <!-- /TOC -->
 
 ### 手写自己的动态代理需要重写那些内容
-首先我们来看看，上一篇文章[代理模式(Proxy pattern)](https:www.baidu.com)的动态代理类中，使用到了那些内容，从中找出需要重新实现的类和方法。
+首先我们来看看，上一篇文章[代理模式(Proxy pattern)](https://lenjor.github.io/2019/10/Design-Patterns-Proxy/)的动态代理类中，使用到了那些内容，从中找出需要重新实现的类和方法。
 
 ![](/images/posts/myBlog/2019-10-03-Implement-Your-Own-JDK-Dynamic-Proxy-01.png)
 
