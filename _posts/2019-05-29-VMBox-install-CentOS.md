@@ -47,8 +47,10 @@ tags: 虚拟机
 ### 网络配置
 安装好的虚拟机系统是没办法上网的，因为网络还没有配置完毕
 1. 配置虚拟机网卡设置
+
 - 网卡1的设置如下：
     ![在这里插入图片描述](/images/posts/myBlog/2019-05-29-VMBox-install-CentOS-12.jpg)
+
 - 网卡2设置如下：
     ![在这里插入图片描述](/images/posts/myBlog/2019-05-29-VMBox-install-CentOS-13.jpg)
 
@@ -56,27 +58,37 @@ tags: 虚拟机
 2. 连接虚拟机，设置网卡配置
     - 输入命令，编辑图中黄色标注的配置为 yes
     ```java
-    vi etc/sysconfig/network-scripts/ifcfg-enp0s3
+    vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
     ``` 
+
 3. 配置网关
     ![在这里插入图片描述](/images/posts/myBlog/2019-05-29-VMBox-install-CentOS-14.jpg)
 
-
+4. 配置ifcfg-enp0s8（可以跳过，不是必须，这里配置的目的是为了自定义虚拟机内网地址而已）
     - 进入本机的cmd 执行 ipconfig ,获取本机的默认网关
     ![在这里插入图片描述](/images/posts/myBlog/2019-05-29-VMBox-install-CentOS-15.jpg)
    
+
     - 输入命令，编辑图中黄色标注的配置,UUID不需要一样
     ```java
-    vi etc/sysconfig/network-scripts/ifcfg-enp0s8
+    vi /etc/sysconfig/network-scripts/ifcfg-enp0s8
     ``` 
     ![在这里插入图片描述](/images/posts/myBlog/2019-05-29-VMBox-install-CentOS-16.jpg)
+
+
+查看虚拟机默认的内网地址方法
+- 先输入命令，安装基本的网络包
+
+     yum install net-tools.x86_64 -y
+
+- 输入 **ifconfig** 查看虚拟机IP配置，即可查看虚拟机的内网地址配置 
 
 4. 重启网关
 执行命令：systemctl restart network
 
 5. 测试网络情况
     - 虚拟机上： ping www.baidu.com
-    - 本机访问虚拟机： ping ping 192.168.0.2
+    - 本机访问虚拟机： ping 192.168.0.2
 
 ### 使用XShell连接
 使用虚拟机连接窗口直接操作有很多的问题，如每次都需要输入密码登录，无法使用复制和粘贴命令，所以我们需要通过XShell来连接，如未安装XShell的朋友请自行安装
