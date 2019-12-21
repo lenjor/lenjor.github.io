@@ -739,6 +739,80 @@ XML文件加载完成以后，还是使用的委派模式，在实现类DefaultB
 		//当解析出错时，返回null
 		return null;
 	}
+
+
+    /**
+	 * Parse the bean definition itself, without regard to name or aliases. May return
+	 * {@code null} if problems occurred during the parsing of the bean definition.
+	 */
+	//详细对<Bean>元素中配置的Bean定义其他属性进行解析
+	//由于上面的方法中已经对Bean的id、name和别名等属性进行了处理
+	//该方法中主要处理除这三个以外的其他属性数据
+	@Nullable
+	public AbstractBeanDefinition parseBeanDefinitionElement(
+			Element ele, String beanName, @Nullable BeanDefinition containingBean) {
+		//记录解析的<Bean>
+		this.parseState.push(new BeanEntry(beanName));
+
+		//这里只读取<Bean>元素中配置的class名字，然后载入到BeanDefinition中去
+		//只是记录配置的class名字，不做实例化，对象的实例化在依赖注入时完成
+		String className = null;
+
+		//如果<Bean>元素中配置了parent属性，则获取parent属性的值
+		if (ele.hasAttribute(CLASS_ATTRIBUTE)) {
+			className = ele.getAttribute(CLASS_ATTRIBUTE).trim();
+		}
+		String parent = null;
+		if (ele.hasAttribute(PARENT_ATTRIBUTE)) {
+			parent = ele.getAttribute(PARENT_ATTRIBUTE);
+		}
+
+		try {
+			//根据<Bean>元素配置的class名称和parent属性值创建BeanDefinition
+			//为载入Bean定义信息做准备
+			AbstractBeanDefinition bd = createBeanDefinition(className, parent);
+
+			//对当前的<Bean>元素中配置的一些属性进行解析和设置，如配置的单态(singleton)属性等
+			parseBeanDefinitionAttributes(ele, beanName, containingBean, bd);
+			//为<Bean>元素解析的Bean设置description信息
+			bd.setDescription(DomUtils.getChildElementValueByTagName(ele, DESCRIPTION_ELEMENT));
+
+			//对<Bean>元素的meta(元信息)属性解析
+			parseMetaElements(ele, bd);
+			//对<Bean>元素的lookup-method属性解析
+			parseLookupOverrideSubElements(ele, bd.getMethodOverrides());
+			//对<Bean>元素的replaced-method属性解析
+			parseReplacedMethodSubElements(ele, bd.getMethodOverrides());
+
+			//解析<Bean>元素的构造方法设置
+			parseConstructorArgElements(ele, bd);
+			//解析<Bean>元素的<property>设置
+			parsePropertyElements(ele, bd);
+			//解析<Bean>元素的qualifier属性
+			parseQualifierElements(ele, bd);
+
+			//为当前解析的Bean设置所需的资源和依赖对象
+			bd.setResource(this.readerContext.getResource());
+			bd.setSource(extractSource(ele));
+
+			return bd;
+		}
+		catch (ClassNotFoundException ex) {
+			error("Bean class [" + className + "] not found", ele, ex);
+		}
+		catch (NoClassDefFoundError err) {
+			error("Class that bean class [" + className + "] depends on not found", ele, err);
+		}
+		catch (Throwable ex) {
+			error("Unexpected failure during bean definition parsing", ele, ex);
+		}
+		finally {
+			this.parseState.pop();
+		}
+
+		//解析<Bean>元素出错时，返回null
+		return null;
+	}
 ```
 至此，在Xml文件中配置的Bean已经注册到Spring中了，具体的注册过程后面的文章再进行说明
 
