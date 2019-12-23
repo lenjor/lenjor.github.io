@@ -5,7 +5,7 @@ tags: SpringBoot
 ---
 
 ### 问题：Spring Boot是如何创建Tomcat的
-我们都知道，SpringBoot启动只有一个main方法的入口，只需要运行main方法就能把web项目部署到tomcat容器中，在main方法中，tomcat到底是如何启动的
+我们都知道，SpringBoot启动只有一个main方法的入口，只需要运行main方法就能把web项目部署到tomcat容器中，在main方法中，tomcat到底是如何启动的（本文基于SpringBoot 2.2.2.RELEASE）
 我们从SpringBoot的main方法一路进去，就会进入到以下的run方法
 ![](/images/posts/myBlog/2019-12-23-Spring-Boot-Tomcat-01.png)
 
@@ -41,6 +41,18 @@ tags: SpringBoot
 
 ### 手写main方法创建并启动Tomcat容器
 SpringBoot也是通过new来创建Tomcat容器的，那么就意味着，我们可以不使用SpringBoot的run方法来启动web项目，我们自己也可以手写一个main方法来启动web项目，下面我们就来实现一下这个过程。
+
+首先我们想一下，我们如果需要部署一个web项目，我们需要哪些操作：
+1. 初始化Spring容器
+2. 扫描实例化Bean
+3. 配置DispatchServerlet，其实容器默认只有一个serverlet，就是DispatchServerlet，默认是 / ，自己写得Controller都是由DispatchServerlet进行分发的
+4. 使用main方法启动
+
+#### 初始化Spring容器
+Spring容器初始化说白了，也就是SpringApplicationContext的初始化，那么我们能不能通过new出来呢？
+
+
+ 
 
 
 
