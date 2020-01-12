@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HTTP（TCP/IP）通信协议
+title: 网络通信基础（一）HTTP（TCP/IP）通信协议
 tags: 网络通信基础  
 ---
 
@@ -15,24 +15,24 @@ tags: 网络通信基础
 
 # ISO 七层网络模型和TCP/IP四层概念模型
 `TCP/IP四层概念模型`是在ISO模型基础上建立的，简化了IOS模型，在实际应用中更为广泛，以下是两种模型的关系：
-![](/images/posts/myBlog/2020-01-12-HTTP-Protocol-01.png)
+![](/images/posts/myBlog/2020-01-12-Network-Communication-Protocol-HTTP-01.png)
 
 ## ISO 七层网络模型
-![](/images/posts/myBlog/2020-01-12-HTTP-Protocol-02.png)
+![](/images/posts/myBlog/2020-01-12-Network-Communication-Protocol-HTTP-02.png)
 
 ## TCP/IP四层概念模型
-![](/images/posts/myBlog/2020-01-12-HTTP-Protocol-03.png)
+![](/images/posts/myBlog/2020-01-12-Network-Communication-Protocol-HTTP-03.png)
 
 
 # 一个 HTTP 请求，在整个网络中的请求过程
 
 ## 发送过程
 当应用程序用 `TCP` 传送数据时，数据被送入协议栈中，然后逐个通过每一层直到被当作一串比特流送入网络。其中每一层对收到的数据都要增加一些首部信息
-![](/images/posts/myBlog/2020-01-12-HTTP-Protocol-04.png)
+![](/images/posts/myBlog/2020-01-12-Network-Communication-Protocol-HTTP-04.png)
 
 ## 接收过程
 当目的主机收到一个以太网数据帧时，数据就开始从协议栈中由底向上升，同时去掉各层协议加上的报文首部。每层协议盒都要去检查报文首部中的协议标识，以确定接收数据的上层协议。这个过程称作分用
-![](/images/posts/myBlog/2020-01-12-HTTP-Protocol-05.png)
+![](/images/posts/myBlog/2020-01-12-Network-Communication-Protocol-HTTP-05.png)
 在接收报文的过程中，报文的每一跳都会拆开MAC头，和封装入新的MAC头，具体的报文转发过程可以参考以下博文
 
 [浅谈通信网络（四）——报文转发（IP/MAC）](https://www.cnblogs.com/daiaiai/p/9080738.html)
@@ -53,11 +53,11 @@ mac 地址就好像个人的身份证号，人的身份证号和人户口所在�
 
 ### TCP三次握手
 由于 `TCP` 协议是一种可信的传输协议，所以在传输之前，需要通过三次握手建立一个连接，所谓的三次握手，就是在建立 `TCP` 链接时，需要客户端和服务端总共发送 3 个包来确认连接的建立
-![](/images/posts/myBlog/2020-01-12-HTTP-Protocol-06.png)
+![](/images/posts/myBlog/2020-01-12-Network-Communication-Protocol-HTTP-06.png)
 
 ### TCP四次挥手
 四次挥手表示 `TCP` 断开连接的时候,需要客户端和服务端总共发送 4 个包以确认连接的断开；客户端或服务器均可主动发起挥手动作(**因为 TCP 是一个全双工协议**)，在socket 编程中，任何一方执行 close() 操作即可产生挥手
-![](/images/posts/myBlog/2020-01-12-HTTP-Protocol-07.png)
+![](/images/posts/myBlog/2020-01-12-Network-Communication-Protocol-HTTP-07.png)
 
 ### 为什么握手只需要3次，挥手需要四次
 三次握手是因为因为当 Server 端收到 Client 端的 `SYN` 连接请求报文后，可以直接发送 `SYN+ACK` 报文。其中 `ACK` 报文是用来应答的，`SYN` 报文是用来同步的。但是关闭连
