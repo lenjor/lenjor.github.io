@@ -83,6 +83,7 @@ http://whois.pconline.com.cn/ipJson.jsp?ip=117.136.12.79&json=true
 ```
 
 # 4. 126
+http://ip.ws.126.net/ipquery?ip=117.136.12.79
 ```JavaScript
 var lo="广东省", lc="";
 var localAddress={city:"", province:"广东省"}
