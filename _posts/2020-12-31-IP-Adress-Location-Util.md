@@ -120,11 +120,11 @@ public class IpUtil {
         "zh-CN": "珠海市"
     }
 }
+```
 
 ## 结果分析
 从结果上面来看，功能已经是实现完毕了，不过有一个问题就是IP的识别准确率的问题，随后我对比了各家的IP识别，都存在有IP的识别准确率的问题，总得来说就是收费识别准确率会更高，有条件的可以购买对应的IP查询的产品服务
 
-```
 
 # 三、工程代码下载
 Git项目地址：[IP库实现IP归属地查询](https://gitee.com/Lj_coding/My-Learning/tree/master/ip)
