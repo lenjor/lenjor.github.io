@@ -41,7 +41,7 @@ tags: 测试，Gatling
 ├── lib		Gatling自身依赖的库文件
 ├── results		存放测试报告
 ├── target		你启动运行组件后，gatling会为你编译好所有的.scala脚本，而编译后的class文件就会在这里
-└── user-files	脚本存放位置，默认下载好的包会有几个官方的示例测试Demo
+└── user-files	脚本存放位置 user-files/simulations ，默认下载好的包会有几个官方的示例测试Demo
 
 
 当运行gating脚本的时候，其会扫描user-files目录下的所有文件，列出其中所有的Simulation(一个测试类，里面可以包含任意多个测试场景)。选择其中一个Simulation，然后填写Simulation ID和运行描述，这个都是为报告描述服务的
@@ -56,7 +56,7 @@ tags: 测试，Gatling
 lenjor@coding bin % ./gatling.sh
 ```
 
-Gatling 会遍历`user-files`，列出所有的Simulation
+Gatling 会遍历`user-files/simulations`，列出所有的Simulation
 
 ```
 GATLING_HOME is set to /Users/lenjor/file/project/myProject/gatling/gatling-charts-highcharts-bundle-3.5.0

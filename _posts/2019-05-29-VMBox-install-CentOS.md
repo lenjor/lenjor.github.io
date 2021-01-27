@@ -8,6 +8,7 @@ tags: 虚拟机
 
 - [安装Oracle VM VirtualBox](#安装oracle-vm-virtualbox)
 - [网络配置](#网络配置)
+- [Linux 用户管理](#linux-用户管理)
 - [使用XShell连接](#使用xshell连接)
 
 <!-- /TOC -->
@@ -79,7 +80,7 @@ tags: 虚拟机
 查看虚拟机默认的内网地址方法
 - 先输入命令，安装基本的网络包
 
-     yum install net-tools.x86_64 -y
+     yum install net-tools.x86_64
 
 - 输入 **ifconfig** 查看虚拟机IP配置，即可查看虚拟机的内网地址配置 
 
@@ -89,6 +90,10 @@ tags: 虚拟机
 5. 测试网络情况
     - 虚拟机上： ping www.baidu.com
     - 本机访问虚拟机： ping 192.168.0.2
+
+### Linux 用户管理
+（1） 创建用户 `sudo useradd {userName}`
+（2） 设置/修改用户密码 `sudo passwd {userName}`
 
 ### 使用XShell连接
 使用虚拟机连接窗口直接操作有很多的问题，如每次都需要输入密码登录，无法使用复制和粘贴命令，所以我们需要通过XShell来连接，如未安装XShell的朋友请自行安装
