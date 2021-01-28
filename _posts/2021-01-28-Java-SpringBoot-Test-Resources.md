@@ -109,5 +109,5 @@ tags: Java
 
 
 # 参考文献
-1. [SpringBoot多环境切换:https://blog.csdn.net/liu911025/article/details/81489117](https://blog.csdn.net/liu911025/article/details/81489117)
+1. [SpringBoot多环境切换](https://blog.csdn.net/liu911025/article/details/81489117)
 2. [springboot Junit单元测试之坑](https://blog.csdn.net/MuErHuoXu/article/details/86750497)
