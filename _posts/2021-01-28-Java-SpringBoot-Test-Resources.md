@@ -23,13 +23,13 @@ tags: Java
  <!--配置环境-->
     <profiles>
         <profile>
-            <id>prod</id>
+            <id>ae</id>
             <properties>
                 <profile.env>ae</profile.env>
             </properties>
         </profile>
         <profile>
-            <id>dev</id>
+            <id>jp</id>
             <properties>
                 <profile.env>jp</profile.env>
             </properties>
