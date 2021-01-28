@@ -9,7 +9,7 @@ tags: Java
 - [单元测试使用和 `src/main/resources` 一样的配置文件](#单元测试使用和-srcmainresources-一样的配置文件)
 - [参考文献](#参考文献)
 
-# SpringBoot项目多种环境配置文件选择
+# SpringBoot项目配置多环境方式
 （1） SpringBoot官方推荐的形式properties多环境配置，通过 `application.properties` 设置 `spring.profile.active` 的值实现，具体的实现可以参考这篇文章
 
 [SpringBoot多环境切换: https://blog.csdn.net/liu911025/article/details/81489117](https://blog.csdn.net/liu911025/article/details/81489117)
