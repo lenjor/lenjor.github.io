@@ -66,7 +66,7 @@ Git安装同样也有两种方式，我采用的是最简单的`yum`命令安装
 ```
 # 安装命令
 yum -y install git
-# 查看安装结果
+# 查看安装结果, 安装的路径是：`/usr/libexec/git-core`
 git --version
 ```
 ![](/images/posts/myBlog/2020-12-06-Linux-install-maven-and-git-04.png)
